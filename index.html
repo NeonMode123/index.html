@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bir Sorum Var</title>
+
+<style>
+
+body{
+background:#0b1d3a;
+color:white;
+text-align:center;
+font-family:Arial, sans-serif;
+overflow:hidden;
+margin:0;
+}
+
+.container{
+margin-top:30vh;
+}
+
+button{
+font-size:20px;
+padding:15px 25px;
+margin:15px;
+border:none;
+border-radius:12px;
+background:#1e3a8a;
+color:white;
+cursor:pointer;
+}
+
+.flower,.heart{
+position:absolute;
+font-size:26px;
+animation:fall linear infinite;
+}
+
+.flower{
+color:#1e3a8a;
+}
+
+.heart{
+color:#0a2a6b;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container" id="main">
+<h1>Benimle barışır mısın? 💙</h1>
+
+<button onclick="showMessage()">Evet 💙</button> <button onclick="showMessage()">Tabii ki 💙</button>
+
+</div>
+
+<script>
+
+function showMessage(){
+
+document.getElementById("main").innerHTML=
+"<h1 style='margin-top:30vh'>O zaman bu çiçeği hakettin 🌹</h1>";
+
+setInterval(createHeart,300);
+
+}
+
+function createFlower(){
+
+const flower=document.createElement("div");
+flower.className="flower";
+flower.innerHTML="✿";
+
+flower.style.left=Math.random()*100+"vw";
+flower.style.animationDuration=(4+Math.random()*5)+"s";
+
+document.body.appendChild(flower);
+
+setTimeout(()=>flower.remove(),8000);
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💙";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),8000);
+
+}
+
+setInterval(createFlower,400);
+
+</script>
+
+</body>
+</html>
